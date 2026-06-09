@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 
-function EntryForm({ closeModal }) {
+function EntryForm({ setEntries, closeModal }) {
+  const [title, setTitle] = useState("");
+  const [date, setDate] = useState(() => {
+    return new Date().toISOString().split("T")[0];
+  });
+  const [picture, setPicture] = useState("");
+  const [content, setContent] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newEntries = {
+      id: Date.now(),
+      title,
+      date,
+      picture,
+      content,
+    };
+
+    setEntries((prev) => [newEntries, ...prev]);
+
+    closeModal();
+  };
+
   return (
     <div className="m-50 p-4 rounded-xl border-2">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="flex justify-between px-2">
           <h2 className="font-bold text-2xl py-2">Neuer Eintrag</h2>
 
@@ -25,6 +48,8 @@ function EntryForm({ closeModal }) {
             type="text"
             className="bg-gray-50 border-2 rounded px-2 p-3 m-2 "
             required
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
 
           {/* Datum */}
@@ -35,6 +60,8 @@ function EntryForm({ closeModal }) {
             type="date"
             className="bg-gray-50 border-2 rounded px-2 p-3 m-2"
             required
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
           />
 
           {/* Bild-URL */}
@@ -44,6 +71,8 @@ function EntryForm({ closeModal }) {
           <input
             type="url"
             className="bg-gray-50 border-2 rounded px-2 p-3 m-2"
+            value={picture}
+            onChange={(e) => setPicture(e.target.value)}
           />
 
           {/* Inhalt */}
@@ -53,6 +82,8 @@ function EntryForm({ closeModal }) {
           <textarea
             type="text"
             className="bg-gray-50 border-2 rounded px-2  pt-2 pb-20 m-2"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
           />
         </div>
 
