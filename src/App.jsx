@@ -1,5 +1,11 @@
+import AddEntryButton from "./components/AddEntryButton";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <AddEntryButton />
+    </>
+  );
 }
 
 export default App;
