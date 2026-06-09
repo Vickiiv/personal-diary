@@ -1,8 +1,11 @@
 import React from "react";
 
-function AddEntryButton() {
+function AddEntryButton({ openModal }) {
   return (
-    <button className="bg-gray-400 py-2 px-5 rounded-2xl hover:bg-gray-700 hover:text-white cursor-pointer">
+    <button
+      onClick={openModal}
+      className="bg-gray-400 py-2 px-5 rounded-2xl hover:bg-gray-700 hover:text-white cursor-pointer"
+    >
       + Neu
     </button>
   );
