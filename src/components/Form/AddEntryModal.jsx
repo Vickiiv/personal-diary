@@ -1,5 +1,5 @@
 import React from "react";
-import EntryForm from "../EntryForm";
+import EntryForm from "./EntryForm";
 
 function AddEntryModal({ isOpen, closeModal, setEntries, entries }) {
   if (!isOpen) return null;

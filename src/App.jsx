@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import AddEntryButton from "./components/AddEntryButton";
-import AddEntryModal from "./components/Modals/AddEntryModal";
-import EntryList from "./components/EntryList";
+import AddEntryButton from "./components/UI/AddEntryButton";
+import AddEntryModal from "./components/Form/AddEntryModal";
+import EntryList from "./components/Entry/EntryList";
+import EntrySort from "./components/UI/EntrySort";
 
 function App() {
   //Formular öffnen
@@ -17,21 +18,27 @@ function App() {
     return stored ? JSON.parse(stored) : [];
   });
 
-  useEffect(() => {
-    localStorage.setItem("entries", JSON.stringify(entries));
-    console.log(entries);
-  }, [entries]);
+  // entries sortieren
+  const [sortMode, setSortMode] = useState("newest");
+
+  const sortedEntries = [...entries].sort((a, b) => {
+    if (sortMode === "newest") {
+      return new Date(b.date) - new Date(a.date);
+    }
+    return new Date(a.date) - new Date(b.date);
+  });
 
   return (
     <>
       <AddEntryButton openModal={openModal} />
+      <EntrySort setSortMode={setSortMode} />
       <AddEntryModal
         isOpen={isOpen}
         closeModal={closeModal}
         setEntries={setEntries}
         entries={entries}
       />
-      <EntryList entries={entries} />
+      <EntryList entries={sortedEntries} />
     </>
   );
 }
