@@ -10,10 +10,14 @@ function App() {
   const openModal = () => setisOpen(true);
   const closeModal = () => setisOpen(false);
 
-  // Entries speichern
-  const [entries, setEntries] = useState([]);
+  // Entries speichern + LocalStorage
+  const [entries, setEntries] = useState(() => {
+    const stored = localStorage.getItem("entries");
+    return stored ? JSON.parse(stored) : [];
+  });
 
   useEffect(() => {
+    localStorage.setItem("entries", JSON.stringify(entries));
     console.log(entries);
   }, [entries]);
 
