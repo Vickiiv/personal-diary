@@ -2,7 +2,7 @@ import React from "react";
 
 function EntryCard({ entry }) {
   return (
-    <div className="border rounded-xl p-4 shadow bg-white mb-4">
+    <div className=" rounded-xl p-4 shadow-xl border-2 border-gray-100 bg-white mb-4">
       {entry.picture && (
         <img
           src={entry.picture}

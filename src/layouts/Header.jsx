@@ -11,7 +11,7 @@ function Header({ openModal }) {
           className="py-2 px-2"
         />
         <div className="flex flex-col justify-center">
-          <h1 className="font-bold">Mein Tagebuch</h1>
+          <h1 className="font-bold text-2xl">Mein Tagebuch</h1>
           <p className="">Placholder</p>
         </div>
       </div>

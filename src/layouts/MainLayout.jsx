@@ -12,7 +12,7 @@ function MainLayout({
   sortedEntries,
 }) {
   return (
-    <main>
+    <main className="">
       <EntrySort setSortMode={setSortMode} />
       <AddEntryModal
         isOpen={isOpen}
