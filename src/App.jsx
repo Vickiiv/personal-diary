@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import AddEntryButton from "./components/AddEntryButton";
 import AddEntryModal from "./components/Modals/AddEntryModal";
+import EntryList from "./components/EntryList";
 
 function App() {
   //Formular öffnen
@@ -30,6 +31,7 @@ function App() {
         setEntries={setEntries}
         entries={entries}
       />
+      <EntryList entries={entries} />
     </>
   );
 }
