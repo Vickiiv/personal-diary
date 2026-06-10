@@ -14,7 +14,7 @@ function EntryCard({ entry }) {
       <h2 className="text-xl font-bold">{entry.title}</h2>
 
       <div className="border-t-2 pt-2">
-        <p className="break-words">{entry.content}</p>
+        <p className="break-word">{entry.content}</p>
       </div>
     </div>
   );
