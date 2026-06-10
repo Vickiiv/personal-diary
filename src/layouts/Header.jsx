@@ -3,8 +3,8 @@ import AddEntryButton from "../components/UI/AddEntryButton";
 
 function Header({ openModal }) {
   return (
-    <header className="fixed top-0 left-0 w-full flex items-center justify-between   bg-white/50 backdrop-blur-xs border-b border-white/30 shadow-md">
-      <div className="flex gap-2 ">
+    <header className="fixed top-0 left-0 w-full flex items-center justify-between   bg-white/50 backdrop-blur-xs border-b shadow-md">
+      <div className="flex gap-2 px-6">
         <img
           src="public/assets/pencilandbook_black.png"
           alt="logo"
