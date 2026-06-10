@@ -28,6 +28,7 @@ function App() {
         isOpen={isOpen}
         closeModal={closeModal}
         setEntries={setEntries}
+        entries={entries}
       />
     </>
   );
