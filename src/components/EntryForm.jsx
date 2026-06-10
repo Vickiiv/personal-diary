@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function EntryForm({ setEntries, closeModal }) {
+function EntryForm({ setEntries, closeModal, entries }) {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState(() => {
     return new Date().toISOString().split("T")[0];
@@ -8,8 +8,15 @@ function EntryForm({ setEntries, closeModal }) {
   const [picture, setPicture] = useState("");
   const [content, setContent] = useState("");
 
+  const exists = entries.some((entry) => entry.date === date);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (exists) {
+      alert("Eintrag für diesen Datum schon vorhanden!");
+      return;
+    }
 
     const newEntries = {
       id: Date.now(),
@@ -20,7 +27,6 @@ function EntryForm({ setEntries, closeModal }) {
     };
 
     setEntries((prev) => [newEntries, ...prev]);
-
     closeModal();
   };
 
