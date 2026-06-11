@@ -35,6 +35,11 @@ function App() {
     // console.log(entries);
   }, [entries]);
 
+  // Eintrag löschen
+  const deleteEntry = (id) => {
+    setEntries((prev) => prev.filter((entry) => entry.id !== id));
+  };
+
   return (
     <>
       <Header openModal={openModal} />
@@ -45,15 +50,9 @@ function App() {
         setEntries={setEntries}
         entries={entries}
         sortedEntries={sortedEntries}
+        deleteEntry={deleteEntry}
       />
-      {/* <EntrySort setSortMode={setSortMode} />
-      <AddEntryModal
-        isOpen={isOpen}
-        closeModal={closeModal}
-        setEntries={setEntries}
-        entries={entries}
-      />
-      <EntryList sortedEntries={sortedEntries} /> */}
+
       <Footer />
     </>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function EntryCard({ entry }) {
+function EntryCard({ entry, deleteEntry }) {
   const date = new Date(entry.date);
   const [isExpanded, setIsExpanded] = useState(false);
   const expandSwitch = () => setIsExpanded((isExpanded) => !isExpanded);
@@ -47,7 +47,15 @@ function EntryCard({ entry }) {
             <button className="cursor-pointer hover:bg-gray-200 rounded-xl px-2 py-1 ">
               Bearbeiten
             </button>
-            <button className="cursor-pointer hover:bg-gray-200 rounded-xl px-2 py-1 ">
+            <button
+              onClick={() => {
+                if (
+                  window.confirm("Willst du diesen Eintrag wirklich löschen?")
+                )
+                  deleteEntry(entry.id);
+              }}
+              className="cursor-pointer hover:bg-gray-200 rounded-xl px-2 py-1 "
+            >
               Löschen
             </button>
           </div>
