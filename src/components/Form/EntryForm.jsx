@@ -57,7 +57,7 @@ function EntryForm({
         onSubmit={handleSubmit}
         className="bg-white rounded-2xl w-full max-w-xl shadow-2xl"
       >
-        <div className="flex justify-between bg-blue-800 rounded-t-2xl  px-5 py-2 border-b-2 border-black/50 shadow-md">
+        <div className="flex justify-between bg-taupe-700 rounded-t-2xl  px-5 py-2 border-b-2 border-black/50 shadow-md">
           <h2 className="font-bold text-2xl py-2 text-white">
             {isEditMode ? "Eintrag bearbeiten" : "Neuer Eintrag"}
           </h2>
@@ -80,7 +80,7 @@ function EntryForm({
             type="text"
             id="title"
             placeholder="Titel des Eintrags.."
-            className="focus:outline-2 focus:outline-blue-800 bg-gray-50 border-2 rounded-xl px-2 py-3 mx-5"
+            className="focus:outline-2 focus:outline-taupe-700 bg-gray-50 border-2 rounded-xl px-2 py-3 mx-5"
             required
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -93,7 +93,7 @@ function EntryForm({
           <input
             type="date"
             id="date"
-            className="focus:outline-2 focus:outline-blue-800 bg-gray-50 border-2 rounded-xl px-2 py-3 mx-5"
+            className="focus:outline-2 focus:outline-taupe-700 bg-gray-50 border-2 rounded-xl px-2 py-3 mx-5"
             required
             value={date}
             onChange={(e) => setDate(e.target.value)}
@@ -107,7 +107,7 @@ function EntryForm({
             type="url"
             id="url"
             placeholder="https://..."
-            className="focus:outline-2 focus:outline-blue-800 bg-gray-50 border-2 rounded-xl px-2 p-3 mx-5"
+            className="focus:outline-2 focus:outline-taupe-700 bg-gray-50 border-2 rounded-xl px-2 p-3 mx-5"
             value={picture}
             onChange={(e) => setPicture(e.target.value)}
           />
@@ -120,7 +120,7 @@ function EntryForm({
             type="text"
             id="content"
             placeholder="Was hast du erlebt, gedackt, gefühlt.."
-            className="focus:outline-2 focus:outline-blue-800 bg-gray-50 border-2 rounded-xl px-2 pt-2 pb-20 mx-5"
+            className="focus:outline-2 focus:outline-taupe-700 bg-gray-50 border-2 rounded-xl px-2 pt-2 pb-20 mx-5"
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
@@ -137,7 +137,7 @@ function EntryForm({
 
           <button
             type="submit"
-            className="bg-blue-800 text-white py-2 mx-3 px-20 rounded-2xl my-2 hover:bg-blue-900 cursor-pointer"
+            className="bg-taupe-700 text-white py-2 mx-3 px-20 rounded-2xl my-2 hover:bg-taupe-900 cursor-pointer"
           >
             Eintrag speichern
           </button>
