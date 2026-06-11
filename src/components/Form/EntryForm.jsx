@@ -21,8 +21,15 @@ function EntryForm({
     }
   }, [selectedEntry]);
 
+  const exists = entries.some((entry) => entry.date === date);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (exists) {
+      alert("Für dieses Datum gibt es schon einen Eintrag!");
+      return;
+    }
 
     if (isEditMode) {
       const updated = {
