@@ -1,32 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function EntryForm({ setEntries, closeModal, entries }) {
+function EntryForm({
+  setEntries,
+  closeModal,
+  entries,
+  selectedEntry,
+  isEditMode,
+}) {
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState(() => {
-    return new Date().toISOString().split("T")[0];
-  });
+  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [picture, setPicture] = useState("");
   const [content, setContent] = useState("");
 
-  const exists = entries.some((entry) => entry.date === date);
+  useEffect(() => {
+    if (selectedEntry) {
+      setTitle(selectedEntry.title);
+      setDate(selectedEntry.date);
+      setPicture(selectedEntry.picture || "");
+      setContent(selectedEntry.content);
+    }
+  }, [selectedEntry]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (exists) {
-      alert("Eintrag für diesen Datum schon vorhanden!");
-      return;
+    if (isEditMode) {
+      const updated = {
+        ...selectedEntry,
+        title,
+        date,
+        picture,
+        content,
+      };
+
+      setEntries((prev) =>
+        prev.map((e) => (e.id === selectedEntry.id ? updated : e)),
+      );
+    } else {
+      const newEntry = {
+        id: Date.now(),
+        title,
+        date,
+        picture,
+        content,
+      };
+
+      setEntries((prev) => [newEntry, ...prev]);
     }
 
-    const newEntries = {
-      id: Date.now(),
-      title,
-      date,
-      picture,
-      content,
-    };
-
-    setEntries((prev) => [newEntries, ...prev]);
     closeModal();
   };
 
@@ -37,7 +58,9 @@ function EntryForm({ setEntries, closeModal, entries }) {
         className="bg-white rounded-2xl w-full max-w-xl shadow-2xl"
       >
         <div className="flex justify-between bg-blue-800 rounded-t-2xl  px-5 py-2 border-b-2 border-black/50 shadow-md">
-          <h2 className="font-bold text-2xl py-2 text-white">Neuer Eintrag</h2>
+          <h2 className="font-bold text-2xl py-2 text-white">
+            {isEditMode ? "Eintrag bearbeiten" : "Neuer Eintrag"}
+          </h2>
 
           <button
             type="button"

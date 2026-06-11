@@ -1,7 +1,7 @@
 import React from "react";
 import EntryCard from "./EntryCard";
 
-function EntryList({ sortedEntries, deleteEntry }) {
+function EntryList({ sortedEntries, deleteEntry, openEditModal }) {
   if (sortedEntries.length === 0) {
     return (
       <div className="flex justify-center m-20">
@@ -12,7 +12,12 @@ function EntryList({ sortedEntries, deleteEntry }) {
   return (
     <div className="my-20 mx-20 flex flex-col gap-2">
       {sortedEntries.map((entry) => (
-        <EntryCard key={entry.id} entry={entry} deleteEntry={deleteEntry} />
+        <EntryCard
+          key={entry.id}
+          entry={entry}
+          deleteEntry={deleteEntry}
+          openEditModal={openEditModal}
+        />
       ))}
     </div>
   );

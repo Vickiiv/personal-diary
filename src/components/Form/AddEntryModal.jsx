@@ -1,7 +1,14 @@
 import React from "react";
 import EntryForm from "./EntryForm";
 
-function AddEntryModal({ isOpen, closeModal, setEntries, entries }) {
+function AddEntryModal({
+  isOpen,
+  closeModal,
+  setEntries,
+  entries,
+  selectedEntry,
+  isEditMode,
+}) {
   if (!isOpen) return null;
 
   return (
@@ -10,6 +17,8 @@ function AddEntryModal({ isOpen, closeModal, setEntries, entries }) {
         closeModal={closeModal}
         setEntries={setEntries}
         entries={entries}
+        selectedEntry={selectedEntry}
+        isEditMode={isEditMode}
       />
     </div>
   );
