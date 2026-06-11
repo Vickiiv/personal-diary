@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-function EntryCard({ entry, deleteEntry }) {
-  const date = new Date(entry.date);
+function EntryCard({ entry, deleteEntry, openEditModal }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const date = new Date(entry.date);
   const expandSwitch = () => setIsExpanded((isExpanded) => !isExpanded);
 
   const formattedDate = `${String(date.getDate()).padStart(2, "0")}.${date.toLocaleString(
@@ -45,7 +45,10 @@ function EntryCard({ entry, deleteEntry }) {
           </div>
 
           <div className="flex justify-end border-t-2 border-gray-300  py-2">
-            <button className="cursor-pointer hover:bg-gray-200 rounded-xl px-2 py-1 ">
+            <button
+              onClick={() => openEditModal(entry)}
+              className="cursor-pointer hover:bg-gray-200 rounded-xl px-2 py-1 "
+            >
               Bearbeiten
             </button>
             <button

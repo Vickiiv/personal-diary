@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
 import Header from "./layouts/Header";
-import AddEntryButton from "./components/UI/AddEntryButton";
-import AddEntryModal from "./components/Form/AddEntryModal";
-import EntryList from "./components/Entry/EntryList";
-import EntrySort from "./components/UI/EntrySort";
 import MainLayout from "./layouts/MainLayout";
 import Footer from "./layouts/Footer";
 
@@ -11,8 +7,8 @@ function App() {
   //Formular öffnen
   const [isOpen, setisOpen] = useState(false);
 
-  const openModal = () => setisOpen(true);
-  const closeModal = () => setisOpen(false);
+  // const openModal = () => setisOpen(true);
+  // const closeModal = () => setisOpen(false);
 
   // Entries speichern + LocalStorage
   const [entries, setEntries] = useState(() => {
@@ -32,7 +28,6 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("entries", JSON.stringify(entries));
-    // console.log(entries);
   }, [entries]);
 
   // Eintrag löschen
@@ -40,9 +35,27 @@ function App() {
     setEntries((prev) => prev.filter((entry) => entry.id !== id));
   };
 
+  // Eintrag bearbeiten
+  const [selectedEntry, setSelectedEntry] = useState(null);
+  const [isEditMode, setIsEditMode] = useState(false);
+
+  const openCreateModal = () => {
+    setSelectedEntry(null);
+    setIsEditMode(false);
+    setisOpen(true);
+  };
+
+  const openEditModal = (entry) => {
+    setSelectedEntry(entry);
+    setIsEditMode(true);
+    setisOpen(true);
+  };
+
+  const closeModal = () => setisOpen(false);
+
   return (
     <>
-      <Header openModal={openModal} />
+      <Header openModal={openCreateModal} />
       <MainLayout
         setSortMode={setSortMode}
         isOpen={isOpen}
@@ -51,6 +64,9 @@ function App() {
         entries={entries}
         sortedEntries={sortedEntries}
         deleteEntry={deleteEntry}
+        openEditModal={openEditModal}
+        selectedEntry={selectedEntry}
+        isEditMode={isEditMode}
       />
 
       <Footer />
