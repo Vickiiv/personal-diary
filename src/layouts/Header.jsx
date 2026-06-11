@@ -12,7 +12,7 @@ function Header({ openModal }) {
         />
         <div className="flex flex-col justify-center">
           <h1 className="font-bold text-2xl">Mein Tagebuch</h1>
-          <p className="">Placholder</p>
+          {/* <p className="">Placholder</p> */}
         </div>
       </div>
       <div className="py-5 px-6">

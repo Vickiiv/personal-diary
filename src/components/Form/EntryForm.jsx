@@ -34,7 +34,7 @@ function EntryForm({ setEntries, closeModal, entries }) {
     <div className="fixed inset-0 flex items-center justify-center backdrop-blur-xs">
       <form
         onSubmit={handleSubmit}
-        className="bg-white border-2 rounded-2xl w-full max-w-xl shadow-2xl"
+        className="bg-white rounded-2xl w-full max-w-xl shadow-2xl"
       >
         <div className="flex justify-between bg-blue-800 rounded-t-2xl  px-5 py-2 border-b-2 border-black/50 shadow-md">
           <h2 className="font-bold text-2xl py-2 text-white">Neuer Eintrag</h2>
