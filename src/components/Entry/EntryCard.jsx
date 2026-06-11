@@ -1,20 +1,37 @@
 import React from "react";
 
 function EntryCard({ entry }) {
+  const date = new Date(entry.date);
+
+  const formattedDate = `${String(date.getDate()).padStart(2, "0")}.${date.toLocaleString(
+    "de-DE",
+    {
+      month: "long",
+    },
+  )}.${date.getFullYear()}`;
   return (
-    <div className="border rounded-xl p-4 shadow bg-white mb-4">
+    <div className="w-full max-w-2xl mx-auto rounded-xl p-4 shadow-xl border-2 border-gray-100 bg-white mb-4">
       {entry.picture && (
         <img
           src={entry.picture}
           alt={entry.title}
-          className="w-full h-48 object-cover rounded mt-2 mb-2"
+          className="w-full h-56 object-cover object-center rounded-lg mb-3"
         />
       )}
-      <p>{entry.date}</p>
-      <h2 className="text-xl font-bold">{entry.title}</h2>
+      <p className="font-mono">{formattedDate}</p>
+      <h2 className="font-mono text-xl font-bold">{entry.title}</h2>
 
-      <div className="border-t-2 pt-2">
-        <p className="break-word">{entry.content}</p>
+      <div className="border-t-2 py-4">
+        <p className="break-normal whitespace-pre-wrap">{entry.content}</p>
+      </div>
+
+      <div className="flex justify-end border-t-2 pt-2">
+        <button className="cursor-pointer hover:bg-gray-200 rounded-xl px-2 py-1 ">
+          Bearbeiten
+        </button>
+        <button className="cursor-pointer hover:bg-gray-200 rounded-xl px-2 py-1 ">
+          Löschen
+        </button>
       </div>
     </div>
   );
