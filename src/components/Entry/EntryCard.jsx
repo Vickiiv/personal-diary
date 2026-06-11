@@ -26,11 +26,13 @@ function EntryCard({ entry, deleteEntry, openEditModal }) {
       <div>
         <div className="px-4 pt-4 pb-2">
           <p className="font-mono">{formattedDate}</p>
-          <h2 className="font-mono text-xl font-bold">{entry.title}</h2>
+          <h2 className="font-sans font-bold text-stone-800 text-xl">
+            {entry.title}
+          </h2>
           <div className="flex justify-end">
             <button
               onClick={expandSwitch}
-              className="cursor-pointer hover:text-gray-500 "
+              className="cursor-pointer hover:text-taupe-700 "
             >
               {isExpanded ? "▲" : "▼"}
             </button>
@@ -41,7 +43,9 @@ function EntryCard({ entry, deleteEntry, openEditModal }) {
       {isExpanded && (
         <div className="px-4">
           <div className="border-t-2 border-gray-300 py-4">
-            <p className="break-normal whitespace-pre-wrap">{entry.content}</p>
+            <p className="break-normal whitespace-pre-wrap font-sans text-stone-500">
+              {entry.content}
+            </p>
           </div>
 
           <div className="flex justify-end border-t-2 border-gray-300  py-2">
