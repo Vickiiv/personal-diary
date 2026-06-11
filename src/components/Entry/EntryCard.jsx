@@ -25,7 +25,7 @@ function EntryCard({ entry, deleteEntry, openEditModal }) {
       </div>
       <div>
         <div className="px-4 pt-4 pb-2">
-          <p className="font-mono">{formattedDate}</p>
+          <p className="font-mono text-taupe-500 font-bold">{formattedDate}</p>
           <h2 className="font-sans font-bold text-stone-800 text-xl">
             {entry.title}
           </h2>
@@ -48,10 +48,10 @@ function EntryCard({ entry, deleteEntry, openEditModal }) {
             </p>
           </div>
 
-          <div className="flex justify-end border-t-2 border-gray-300  py-2">
+          <div className="flex justify-end border-t-2 border-gray-300 gap-2  pt-2 py-3">
             <button
               onClick={() => openEditModal(entry)}
-              className="cursor-pointer hover:bg-gray-200 rounded-xl px-2 py-1 "
+              className=" cursor-pointer hover:bg-taupe-700 hover:text-white shadow-md rounded-xl px-2 py-1 "
             >
               Bearbeiten
             </button>
@@ -62,7 +62,7 @@ function EntryCard({ entry, deleteEntry, openEditModal }) {
                 )
                   deleteEntry(entry.id);
               }}
-              className="cursor-pointer hover:bg-gray-200 rounded-xl px-2 py-1 "
+              className=" cursor-pointer hover:bg-taupe-700 hover:text-white shadow-md rounded-xl px-2 py-1 "
             >
               Löschen
             </button>
