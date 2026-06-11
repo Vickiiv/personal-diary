@@ -11,6 +11,7 @@ function EntryCard({ entry, deleteEntry }) {
       month: "long",
     },
   )}.${date.getFullYear()}`;
+
   return (
     <div className="w-full max-w-2xl mx-auto rounded-xl shadow-xl border-2 border-gray-100 bg-white mb-4">
       <div className="">
