@@ -10,6 +10,7 @@ function MainLayout({
   setEntries,
   entries,
   sortedEntries,
+  deleteEntry,
 }) {
   return (
     <main className="">
@@ -20,7 +21,7 @@ function MainLayout({
         setEntries={setEntries}
         entries={entries}
       />
-      <EntryList sortedEntries={sortedEntries} />
+      <EntryList sortedEntries={sortedEntries} deleteEntry={deleteEntry} />
     </main>
   );
 }
