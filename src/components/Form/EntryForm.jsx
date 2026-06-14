@@ -41,12 +41,12 @@ function EntryForm() {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center backdrop-blur-xs">
+    <div className="z-50 fixed inset-0 flex items-center justify-center backdrop-blur-xs p-4">
       <form
         onSubmit={handleSubmit}
         className="bg-white rounded-2xl w-full max-w-xl shadow-2xl"
       >
-        <div className="flex justify-between bg-taupe-700 rounded-t-2xl px-5 py-2 border-b-2 border-black/50 shadow-md">
+        <div className="flex justify-between bg-taupe-700 rounded-t-2xl px-5 py-2 border-b-2 border-black/50 shadow-md ">
           <h2 className="font-bold text-2xl py-2 text-white">
             {isEditMode ? "Eintrag bearbeiten" : "Neuer Eintrag"}
           </h2>
@@ -113,13 +113,13 @@ function EntryForm() {
           <button
             type="button"
             onClick={close}
-            className="bg-gray-200 py-2 mx-3 px-20 rounded-2xl my-2 hover:bg-gray-300"
+            className=" w-full sm:w-auto bg-gray-200 py-2 mx-3 sm:px-20 rounded-2xl my-2 hover:bg-gray-300"
           >
             Abbrechen
           </button>
           <button
             type="submit"
-            className="bg-taupe-700 text-white py-2 mx-3 px-20 rounded-2xl my-2 hover:bg-taupe-900 cursor-pointer"
+            className=" w-full  sm:w-auto bg-taupe-700 text-white py-2 mx-3 sm:px-20 rounded-2xl my-2 hover:bg-taupe-900 cursor-pointer"
           >
             Eintrag speichern
           </button>
