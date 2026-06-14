@@ -14,7 +14,7 @@ function ScrollToTopBtn() {
           onClick={scrollUpEvent}
           className="cursor-pointer hover:bg-blue-200/50 rounded-full shadow-2xl"
         >
-          <img src="public/assets/scroll-up.png" alt="" />
+          <img src="/assets/scroll-up.png" alt="" />
         </button>
       </div>
     </div>
