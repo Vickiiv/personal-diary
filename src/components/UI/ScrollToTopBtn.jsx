@@ -8,7 +8,7 @@ function ScrollToTopBtn() {
   };
 
   return (
-    <div className="absolute top-27 right-15 ">
+    <div className="absolute top-27 right-13 ">
       <div className="fixed">
         <button
           onClick={scrollUpEvent}

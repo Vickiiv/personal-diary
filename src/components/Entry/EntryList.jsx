@@ -13,7 +13,7 @@ function EntryList() {
   }
 
   return (
-    <div className="my-20 mx-20 flex flex-col gap-2">
+    <div className="sm:mx-20 my-10 ml-6 mr-15 flex flex-col gap-2">
       {sortedEntries.map((entry) => (
         <EntryCard key={entry.id} entry={entry} />
       ))}
