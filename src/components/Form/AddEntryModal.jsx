@@ -1,27 +1,12 @@
-import React from "react";
 import EntryForm from "./EntryForm";
+import { useEntriesContext } from "../../context/EntriesContext";
 
-function AddEntryModal({
-  isOpen,
-  closeModal,
-  setEntries,
-  entries,
-  selectedEntry,
-  isEditMode,
-}) {
+function AddEntryModal() {
+  const { isOpen } = useEntriesContext();
+
   if (!isOpen) return null;
 
-  return (
-    <div>
-      <EntryForm
-        closeModal={closeModal}
-        setEntries={setEntries}
-        entries={entries}
-        selectedEntry={selectedEntry}
-        isEditMode={isEditMode}
-      />
-    </div>
-  );
+  return <EntryForm />;
 }
 
 export default AddEntryModal;
