@@ -4,6 +4,7 @@ function ScrollToTopBtn() {
   const scrollUpEvent = () => {
     window.scrollTo({
       top: 0,
+      behavior: "smooth",
     });
   };
 
