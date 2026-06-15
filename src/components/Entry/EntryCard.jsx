@@ -18,7 +18,7 @@ function EntryCard({ entry }) {
   };
 
   return (
-    <div className="w-full rounded-xl shadow-xl border-2 border-gray-100 bg-white mb-4">
+    <div className="w-full max-w-5xl mx-auto rounded-xl shadow-xl border-2 border-gray-100 bg-white mb-4">
       {entry.picture && (
         <img
           src={entry.picture}
