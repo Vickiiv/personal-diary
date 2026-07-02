@@ -6,7 +6,7 @@ function EntryList() {
 
   if (sortedEntries.length === 0) {
     return (
-      <div className="flex justify-center m-20">
+      <div className="flex justify-center text-taupe-500 m-20">
         <p>Keine Einträge vorhanden</p>
       </div>
     );
